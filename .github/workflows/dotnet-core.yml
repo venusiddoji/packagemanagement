@@ -93,7 +93,7 @@ jobs:
         with:
           dotnet-version: 3.1.301
       - name: add package source
-        run: dotnet nuget add source https://nuget.pkg.github.com/index.json -n github -u venusiddoji/packagemanagement -p ${{secrets.NUGETAPIKEY1}} --store-password-in-clear-text
+        run: dotnet nuget add source https://nuget.pkg.github.com/venusiddoji/index.json -n github -u venusiddoji -p ${{secrets.NUGETAPIKEY1}} --store-password-in-clear-text
       - name: publish
         run: dotnet nuget push ./nupkg/**.nupkg --source github --api-key ${{secrets.NUGETAPIKEY1}} --skip-duplicate 
  
