@@ -71,7 +71,7 @@ jobs:
       run: dotnet test ${{github.workspace}}/CalculationEngine/CalculationEngine/CalculationEngine.csproj --no-restore --verbosity normal
 
     - name: pack
-      run: dotnet pack ${{github.workspace}}/CalculationEngine/CalculationEngine/CalculationEngine.csproj  --output ./artifacts --configuration Release -p:Version=${{ steps.gitversion.outputs.commitDate }}
+      run: dotnet pack ${{github.workspace}}/CalculationEngine/CalculationEngine/CalculationEngine.csproj  --output ./artifacts --configuration Release
     
     - name: Upload Artifacts
       uses: actions/upload-artifact@v2
@@ -95,4 +95,4 @@ jobs:
       - name: add package source
         run: dotnet nuget add source https://nuget.pkg.github.com/venusiddoji/index.json -n github -u venusiddoji -p ${{secrets.PkgNuget}} --store-password-in-clear-text
       - name: publish
-        run: dotnet nuget push ./nupkg/**.nupkg --source github --api-key ${{secrets.PkgNuget}} --skip-duplicate
+        run: dotnet nuget push ./nupkg/**.nupkg --api-key ${{secrets.PkgNuget}} --source github --skip-duplicate
