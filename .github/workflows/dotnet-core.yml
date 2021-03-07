@@ -60,6 +60,7 @@ jobs:
         echo "CommitsSinceVersionSourcePadded: ${{ steps.gitversion.outputs.commitsSinceVersionSourcePadded }}"
         echo "UncomittedChanges: ${{ steps.gitversion.outputs.uncomittedChanges }}"
         echo "CommitDate: ${{ steps.gitversion.outputs.commitDate }}"
+        echo "Venu github workspace: ${{github.workspace}}"
 
     - name: Install dependencies
       run: dotnet restore ${{github.workspace}}/CalculationEngine/CalculationEngine/CalculationEngine.csproj
