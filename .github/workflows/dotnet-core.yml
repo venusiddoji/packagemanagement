@@ -71,7 +71,7 @@ jobs:
       run: dotnet test ${{github.workspace}}/CalculationEngine/CalculationEngine/CalculationEngine.csproj --no-restore --verbosity normal
 
     - name: pack
-      run: dotnet pack ${{github.workspace}}/CalculationEngine/CalculationEngine/CalculationEngine.csproj  --output ./artifacts --configuration Release -p:Version=${{ steps.gitversion.outputs.nuGetVersionV2 }}
+      run: dotnet pack ${{github.workspace}}/CalculationEngine/CalculationEngine/CalculationEngine.csproj  --output ./artifacts --configuration Release -p:Version=${{ steps.gitversion.outputs.nuGetVersionV2 + 1 }}
     
     - name: Upload Artifacts
       uses: actions/upload-artifact@v2
