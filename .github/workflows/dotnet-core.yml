@@ -95,4 +95,4 @@ jobs:
       - name: add package source
         run: dotnet nuget add source https://nuget.pkg.github.com/venusiddoji/index.json -n github -u venusiddoji -p ${{secrets.PkgNuget}} --store-password-in-clear-text
       - name: publish
-        run: dotnet nuget push ./nupkg/**.nupkg --api-key ${{secrets.PkgNuget}} --source github --skip-duplicate
+        run: dotnet nuget push ./nupkg/**.nupkg --api-key ${{secrets.PkgNuget}} --source github
